@@ -9,7 +9,7 @@ import (
 
 func main() {
 	conf := config.NewConfig()
-	server := conf.Servers["screepsplus"]
+	server := conf.Servers["main"]
 	//server.Username = "invalid"
 	c := screeps.NewClient(server)
 
@@ -19,7 +19,7 @@ func main() {
 	// resp2, _ := c.Authmod()
 	// log.Printf("%v", resp2)
 
-	resp, err := c.AuthMe()
+	resp, err := c.RoomHistory("W1N1", 31768500, "")
 	if err != nil {
 		log.Printf("Error: %v", err)
 	} else {

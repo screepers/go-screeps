@@ -11,16 +11,19 @@ import (
 
 // Client Screeps API client
 type Client struct {
-	r      *resty.Client
-	config *config.ServerConfig
-	token  string
+	r            *resty.Client
+	config       *config.ServerConfig
+	token        string
+	version      *VersionResponse
+	DefaultShard string
 }
 
 // NewClient creates a new client
 func NewClient(config config.ServerConfig) *Client {
 	c := &Client{
-		config: &config,
-		r:      resty.New(),
+		config:       &config,
+		r:            resty.New(),
+		DefaultShard: "shard0",
 	}
 	if config.Token != "" {
 		c.token = config.Token
@@ -82,4 +85,16 @@ func NewClient(config config.ServerConfig) *Client {
 // IsOfficial Returns true if server is screeps.com
 func (c *Client) IsOfficial() bool {
 	return c.config.Host == "screeps.com"
+}
+
+// GetVersion - Returns the current server version and info (Cached)
+func (c *Client) GetVersion() (*VersionResponse, error) {
+	if c.version == nil {
+		res, err := c.Version()
+		if err != nil {
+			return nil, err
+		}
+		c.version = res
+	}
+	return c.version, nil
 }
