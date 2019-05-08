@@ -2,7 +2,7 @@
 A Screeps Library in Go (WIP)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/screepers/go-screeps)](https://goreportcard.com/report/github.com/screepers/go-screeps)
-[![LICENSE](https://img.shields.io/github/license/screepers/go-screeps.svg")](LICENSE)
+[![LICENSE](https://img.shields.io/github/license/screepers/go-screeps.svg)](LICENSE)
 [![GoDoc](https://godoc.org/github.com/screepers/go-screeps?status.svg)](https://godoc.org/github.com/screepers/go-screeps)
 
 ## Basic Usage
