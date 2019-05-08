@@ -3,7 +3,7 @@ package screeps
 import (
 	"fmt"
 	"net/http"
-	"screepers/go-screeps/v1/config"
+	"screepers/go-screeps/config"
 
 	"gopkg.in/resty.v1"
 )

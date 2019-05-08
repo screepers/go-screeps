@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"screepers/go-screeps/v1/config"
-	"screepers/go-screeps/v1/screeps"
+	"screepers/go-screeps/config"
+	"screepers/go-screeps/screeps"
 )
 
 func main() {

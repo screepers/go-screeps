@@ -1,4 +1,4 @@
-module screepers/go-screeps/v1
+module screepers/go-screeps
 
 go 1.12
 
