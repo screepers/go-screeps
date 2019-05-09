@@ -32,6 +32,7 @@ func loadConfig(file string) (*Config, error) {
 	c := &Config{}
 	err = yaml.Unmarshal(configFile, c)
 	if err != nil {
+		log.Printf("Failed to parse config: %v  err: %v", file, err)
 		return nil, err
 	}
 	return c, nil
@@ -71,4 +72,13 @@ func getDirs() []string {
 		}
 	}
 	return paths
+}
+
+// GetConfig - Gets a parsed AppConfig
+func (c *Config) GetConfig(name string, tgt interface{}) error {
+	b, err := yaml.Marshal(c.Configs[name])
+	if err != nil {
+		return err
+	}
+	return yaml.Unmarshal(b, tgt)
 }

@@ -11,7 +11,7 @@ import (
 func Example() {
 	conf := config.NewConfig()
 	server := conf.Servers["main"]
-	c := NewClient(server)
+	c := NewClient(*server)
 	resp, err := c.AuthMe()
 	if err != nil {
 		log.Printf("Error: %v", err)

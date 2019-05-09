@@ -78,8 +78,12 @@ func NewClient(config config.ServerConfig) *Client {
 		path = "/ptr"
 	}
 	c.r.SetHostURL(fmt.Sprintf("%s://%s:%d%s", proto, config.Host, config.Port, path))
-	c.r.SetDebug(true)
 	return c
+}
+
+// SetDebug - Enables resty debug output
+func (c *Client) SetDebug(val bool) {
+	c.r.SetDebug(val)
 }
 
 // IsOfficial Returns true if server is screeps.com

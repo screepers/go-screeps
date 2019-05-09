@@ -2,12 +2,9 @@ package config
 
 // Config Root .screeps.yml
 type Config struct {
-	Servers map[string]ServerConfig `yaml:"servers"`
-	Configs map[string]AppConfig    `yaml:"configs"`
+	Servers map[string]*ServerConfig `yaml:"servers"`
+	Configs map[string]interface{}   `yaml:"configs"`
 }
-
-// AppConfig .screeps.yml app config
-type AppConfig interface{}
 
 // ServerConfig .screeps.yml server config
 type ServerConfig struct {
